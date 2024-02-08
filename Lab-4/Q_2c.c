@@ -17,27 +17,28 @@ void print(Node *head){
 }
 
 
-void deleteBefore(Node *head, int key){
+Node* deleteBefore(Node *head, int key){
     Node *curr = head, *prev = NULL;
     while(curr != NULL && curr->next != NULL){
         if(curr->next->val == key){
-            if(prev == head){
+            if(prev == NULL){
                 // If the node to delete is the first node
                 Node *temp = head;
                 head = head->next;
                 free(temp);
-                return;
+                break;
             } else {
                 // Delete the node before the node with the key value
                 Node *temp = prev->next;
                 prev->next = temp->next;
                 free(temp);
-                return;
+                break;
             }
         }
         prev = curr;
         curr = curr->next;
     }
+    return head;
 }
 
 
@@ -59,7 +60,7 @@ int main(){
     int key;
     printf("Enter value of key: ");
     scanf("%d",&key);
-    deleteBefore(head, key);
+    head = deleteBefore(head, key);
     printf("The linked list after deleting: ");
     print(head);
     clock_t end = clock();
