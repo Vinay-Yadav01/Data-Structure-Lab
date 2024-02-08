@@ -16,7 +16,7 @@ void print(Node *head){
     printf("\n");
 }
 
-void delete(Node *head, int key){
+Node* delete(Node *head, int key){
     Node *temp = head;
     while(temp != NULL){
         if(temp==head && temp->val == key){
@@ -33,6 +33,7 @@ void delete(Node *head, int key){
         }
         temp = temp->next;
     }
+    return head;
 }
 
 int main(){
@@ -53,7 +54,7 @@ int main(){
     int key;
     printf("Enter value of key: ");
     scanf("%d",&key);
-    delete(head, key);
+    head = delete(head, key);
     printf("The linked list after deleting: ");
     print(head);
     clock_t end = clock();
