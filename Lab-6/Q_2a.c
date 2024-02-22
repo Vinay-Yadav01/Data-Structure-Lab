@@ -30,7 +30,10 @@ Node* insert(Node *head, int key, int value)
     Node *newNode = (Node *)malloc(sizeof(Node));
     newNode->val = value;
     newNode->next = temp->next;
-    temp->next->prev=newNode;
+    if (temp->next != NULL)
+    {
+        temp->next->prev = newNode;
+    }
     temp->next = newNode;
     newNode->prev = temp;
     return head;
