@@ -54,12 +54,13 @@ void infixToPostfix(char s[]) {
         result[resultIndex++] = stack[top--];
     }
     result[resultIndex] = '\0';
-    printf("%s\n", result);
+    printf("Postfix expression: %s\n", result);
 }
 
 int main() {
     clock_t start = clock();
     char exp[] = "a+b*(c^d-e)^(f+g*h)-i";
+    printf("Infix expression: %s\n", exp);
     infixToPostfix(exp); 
     clock_t end = clock();
     double time_spent = (double)(end - start) / CLOCKS_PER_SEC;

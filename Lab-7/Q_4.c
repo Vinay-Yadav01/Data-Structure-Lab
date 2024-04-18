@@ -80,6 +80,7 @@ int main()
 {
     clock_t start = clock();
     char exp[] = "5968*/+";
+    printf("Given postfix expression: %s\n", exp);
     printf("Postfix evaluation: %d\n", evaluate(exp));
     clock_t end = clock();
     double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
